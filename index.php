@@ -1,52 +1,46 @@
+<?php
+$host = "localhost";
+$user = "userweb";
+$pass = "140194";
+$db = "db_makanan";
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$result = $conn->query("SELECT * FROM makanan");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple CRUD App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Daftar Makanan</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Simple CRUD Application</h1>
-
-        <div class="form-container">
-            <input type="text" id="name" placeholder="Enter Name" />
-            <input type="text" id="age" placeholder="Enter Age" />
-            <button onclick="addRecord()">Add</button>
-        </div>
-
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                <!-- Data will be inserted here -->
-            </tbody>
-        </table>
-    </div>
-    <?php
-    include 'config.php';
-    
-    $sql = "SELECT * FROM users";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["name"] . "</td><td>" . $row["age"] . "</td></tr>";
-        }
-    } else {
-        echo "<tr><td colspan='2'>No data available</td></tr>";
-    }
-    
-    $conn->close();
-    ?>
-
-    <script src="script.js"></script>
+    <h1>Daftar Makanan</h1>
+    <a href="tambah.php">Tambah Makanan</a>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Harga</th>
+            <th>Deskripsi</th>
+            <th>Aksi</th>
+        </tr>
+        <?php $i = 1; while ($row = $result->fetch_assoc()): ?>
+        <tr>
+            <td><?= $i++; ?></td>
+            <td><?= $row['nama']; ?></td>
+            <td><?= $row['harga']; ?></td>
+            <td><?= $row['deskripsi']; ?></td>
+            <td>
+                <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
+                <a href="hapus.php?id=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin dihapus?');">Hapus</a>
+            </td>
+        </tr>
+        <?php endwhile; ?>
+    </table>
 </body>
 </html>
-
