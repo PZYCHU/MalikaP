@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$conn = new mysqli("localhost", "root", "140194", "db_makanan");
+$conn = new mysqli("localhost", "malika", "Norenfujo7!", "db_makanan");
 
 $sql = "DELETE FROM makanan WHERE id = $id";
 if ($conn->query($sql) === TRUE) {
