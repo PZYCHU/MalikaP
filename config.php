@@ -2,7 +2,7 @@
 // Konfigurasi Database
 $servername = "localhost";  // Host database, biasanya localhost
 $username = "root";         // Username MySQL
-$password = "";             // Password MySQL (kosong jika menggunakan default di localhost)
+$password = "140194";             // Password MySQL (kosong jika menggunakan default di localhost)
 $dbname = "crud_database";  // Nama database yang akan digunakan
 
 // Membuat koneksi ke database
