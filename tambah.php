@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
 
-    $conn = new mysqli("localhost", "userweb", "password123", "db_makanan");
+    $conn = new mysqli("localhost", "root", "password123", "db_makanan");
     $sql = "INSERT INTO makanan (nama, harga, deskripsi) VALUES ('$nama', $harga, '$deskripsi')";
 
     if ($conn->query($sql) === TRUE) {
