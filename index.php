@@ -17,6 +17,8 @@ $result = $conn->query("SELECT * FROM makanan");
 <head>
     <meta charset="UTF-8">
     <title>Daftar Makanan</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <h1>Daftar Makanan</h1>

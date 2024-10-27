@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Edit Makanan</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Edit Makanan</h1>
